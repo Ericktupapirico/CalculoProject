@@ -22,9 +22,11 @@ namespace CalculoProject.Models
             {
                 if (i > 0)
                 {
-                    Factorial *= i;
-                    Potencia *= x;
+
+                    Factorial *= (2 * i - 1) + (2 * i);
+                    Potencia *= x * x;
                 }
+                Secuencia[i] = Potencia / Factorial;
                 Sum += Secuencia[i];
             }
 

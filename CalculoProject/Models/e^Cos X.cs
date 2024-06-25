@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CalculoProject.Models
 {
-    internal class ExCos : Ex
+    public class ExCos : Ex
     {
         public ExCos(double x, int terminos) : base(x, terminos)
         {
@@ -14,21 +10,49 @@ namespace CalculoProject.Models
 
         public override double calcularSucesion(double x)
         {
-            double[] Secuencia = new double[Terminos];
-            double Factorial = 1.0;
-            double Potencia = 1.0;
-            double Sum = 0.0;
-            for (int i = 0; i < Terminos; i++)
+            double cosX = CalculateCos(x, Terminos);
+            double eCosX = CalculateExpCos(cosX, Terminos);
+
+            return eCosX;
+        }
+
+     
+        static double CalculateCos(double x, int Terms)
+        {
+            double cosX = 1.0;
+            double signo = -1.0;
+            double Exponente = x;
+            double factorial = 1.0;
+
+            for (int n = 1; n < Terms; n++)
             {
-                if (i > 0)
-                {
-                    Factorial *= i;
-                    Potencia *= x;
-                }
-                Sum += Secuencia[i];
+                    Exponente *= x * x;
+                    factorial *= (2 * n - 1) * (2 * n);
+                    double term = signo * (Exponente / factorial);
+                    cosX += term;
+                    signo = -signo;
+                
             }
 
-            return Sum;
+            return cosX;
+        }
+
+   
+        static double CalculateExpCos(double cosX, int Terms)
+        {
+            double eCosX = 1.0;
+            double Exponente = 1.0;
+            double factorial = 1.0;
+
+            for (int n = 1; n < Terms; n++)
+            {  
+                    Exponente *= cosX;
+                    factorial *= n;
+                    eCosX += Exponente / factorial;
+                
+            }
+
+            return eCosX;
         }
     }
 }

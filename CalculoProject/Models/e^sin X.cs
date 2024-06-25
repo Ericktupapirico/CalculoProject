@@ -1,34 +1,56 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CalculoProject.Models
 {
-    public class ExSen : Ex
+    public class ExSenX : Ex
     {
-        public ExSen(double x, int terminos) : base(x, terminos)
+        public ExSenX(double x, int terminos) : base(x, terminos)
         {
         }
 
         public override double calcularSucesion(double x)
         {
-            double[] Secuencia = new double[Terminos];
-            double Factorial = 1.0;
-            double Potencia = 1.0;
-            double Sum = 0.0;
-            for (int i = 0; i < Terminos; i++)
+            double sinX = CalculateSin(x, Terminos);
+            double eSinX = CalculateExpSin(sinX, Terminos);
+
+            return eSinX;
+        }
+
+ 
+        static double CalculateSin(double x, int nTerms)
+        {
+            double sinX = 1.0;
+            double signo = -1.0;
+            double Exponente = x;
+            double factorial = 1.0;
+
+            for (int n = 1; n < nTerms; n++)
             {
-                if (i > 0)
-                {
-                    Factorial *= i;
-                    Potencia *= x;
-                }
-                Sum += Secuencia[i];
+                Exponente *= x * x;
+                factorial *= (2 * n) * (2 * n + 1);
+                double term = signo  * (Exponente / factorial);
+                sinX += term;
+                signo = -signo; 
             }
 
-            return Sum;
+            return sinX;
+        }
+
+       
+        static double CalculateExpSin(double sinX, int Terms)
+        {
+            double eSinX = 1.0;
+            double exponente = 1.0;
+            double factorial = 1.0;
+
+            for (int n = 1; n < Terms; n++)
+            {
+                exponente *= sinX;
+                factorial *= n;
+                eSinX += exponente / factorial;
+            }
+
+            return eSinX;
         }
     }
 }

@@ -6,25 +6,27 @@ using System.Threading.Tasks;
 
 namespace CalculoProject.Models
 {
-    public class Coth : Ex
+    public class ArcCoth : Ex
     {
-        public Coth(double x, int terminos) : base(x, terminos)
+        public ArcCoth(double x, int terminos) : base(x, terminos)
         {
         }
 
         public override double calcularSucesion(double x)
         {
             double[] Secuencia = new double[Terminos];
-            double Factorial = 1.0;
+            double Divisor = 1.0;
             double Potencia = 1.0;
             double Sum = 0.0;
             for (int i = 0; i < Terminos; i++)
             {
+                Divisor = 2 * i + 1;
                 if (i > 0)
                 {
-                    Factorial *= i;
-                    Potencia *= x;
+
+                    Potencia *= x * x;
                 }
+                Secuencia[i] = 1 / (Potencia * Divisor);
                 Sum += Secuencia[i];
             }
 
