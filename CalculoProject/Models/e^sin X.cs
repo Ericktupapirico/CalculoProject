@@ -2,13 +2,13 @@
 
 namespace CalculoProject.Models
 {
-    public class ExSenX : Ex
+    public class ExSenX : Padre
     {
         public ExSenX(double x, int terminos) : base(x, terminos)
         {
         }
 
-        public override double calcularSucesion(double x)
+        public override double calcularSucesion(double x, int Terminos)
         {
             double sinX = CalculateSin(x, Terminos);
             double eSinX = CalculateExpSin(sinX, Terminos);

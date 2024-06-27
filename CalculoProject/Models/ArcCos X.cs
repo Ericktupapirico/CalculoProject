@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace CalculoProject.Models
 {
-    public class ArcCos : Ex
+    public class ArcCos : Padre
     {
         public ArcCos(double x, int terminos) : base(x, terminos)
         {
         }
 
-        public override double calcularSucesion(double x)
+        public override double calcularSucesion(double x, int Terminos)
         {
             double[] Secuencia = new double[Terminos];
             double Factorial = 1.0;

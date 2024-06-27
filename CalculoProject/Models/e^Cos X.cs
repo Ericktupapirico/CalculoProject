@@ -2,13 +2,13 @@
 
 namespace CalculoProject.Models
 {
-    public class ExCos : Ex
+    public class ExCos : Padre
     {
         public ExCos(double x, int terminos) : base(x, terminos)
         {
         }
 
-        public override double calcularSucesion(double x)
+        public override double calcularSucesion(double x, int Terminos)
         {
             double cosX = CalculateCos(x, Terminos);
             double eCosX = CalculateExpCos(cosX, Terminos);

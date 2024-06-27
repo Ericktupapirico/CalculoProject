@@ -6,16 +6,14 @@ using System.Threading.Tasks;
 
 namespace CalculoProject.Models
 {
-    public abstract class Ex
+    public  class Exp : Padre
     {
-        public  double x { get; set; }
-        public int Terminos { get; set; }
-        public Ex(double x, int terminos)
+       
+        public Exp(double X, int Terminos) : base(X, Terminos)
         {
-            this.x = x;
-            this.Terminos = Terminos;
         }
-        public virtual double calcularSucesion(double x)
+
+        public override double calcularSucesion(double x, int Terminos)
         {
             double[] Secuencia = new double[Terminos];
             double Factorial = 1.0;
@@ -23,11 +21,12 @@ namespace CalculoProject.Models
             double Sum = 0.0;
             for(int i = 0; i < Terminos; i++)
             {
-                if(i > 0)
+                if (i > 0)
                 {
-                    Factorial *= i;
-                    Potencia *= x;
+                    Factorial *= i; 
+                    Potencia *= x; 
                 }
+               
                 Secuencia[i] = Potencia / Factorial;
                 Sum += Secuencia[i];
             }

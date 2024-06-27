@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace CalculoProject.Models
 {
-   public class Sinx : Ex
+   public class Sinx : Padre
     {
         public Sinx(double x, int terminos) : base(x, terminos)
         {
         }
 
-        public override double calcularSucesion(double x)
+        public override double calcularSucesion(double x, int Terminos)
         {
             double[] Secuencia = new double[Terminos];
             double Factorial = 1.0;
@@ -25,6 +25,7 @@ namespace CalculoProject.Models
                     Factorial *= i;
                     Potencia *= x;
                 }
+
                 Sum += Secuencia[i];
             }
 

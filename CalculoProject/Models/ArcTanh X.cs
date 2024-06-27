@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace CalculoProject.Models
 {
-    public class ArcTanh : Ex
+    public class ArcTanh : Padre
     {
         public ArcTanh(double x, int terminos) : base(x, terminos)
         {
         }
 
-        public override double calcularSucesion(double x)
+        public override double calcularSucesion(double x, int Terminos)
         {
             double[] Secuencia = new double[Terminos];
             double Divisor = 1.0;
