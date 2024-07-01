@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CalculoProject.Models
 {
@@ -12,25 +8,19 @@ namespace CalculoProject.Models
         {
         }
 
-        public override double calcularSucesion(double x, int Terminos)
+        public override double calcularSucesion(double x, int terminos)
         {
-            double[] Secuencia = new double[Terminos];
-            double Divisor = 1.0;
-            double Potencia = 1.0;
-            double Sum = 0.0;
-            for (int i = 0; i < Terminos; i++)
-            {
-                Divisor = 2*i+1;
-                if (i > 0)
-                {
-                
-                    Potencia *= x * x;
-                }
-                Secuencia[i] = Potencia / Divisor;
-                Sum += Secuencia[i];
-            }
+            double seriesSum = 0;
+            double currentPower = x;
 
-            return Sum;
+            for (int i = 0; i <= terminos; i++)
+            {
+                double term = currentPower / (2 * i + 1);
+                seriesSum += term;
+                currentPower *= x * x; 
+            }
+            return seriesSum;
         }
     }
-}
+    }
+

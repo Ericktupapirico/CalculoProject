@@ -18,9 +18,8 @@ namespace CalculoProject
             InitializeComponent();
         }
 
-        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        private void textButton1_KeyPress(object sender, KeyPressEventArgs e)
         {
-       
             char ch = e.KeyChar;
 
             if (ch == 8)
@@ -29,20 +28,33 @@ namespace CalculoProject
                 return;
             }
 
-         
-            if (!char.IsDigit(ch) && ch != '.' && ch != '-')
+            TextBox textBox = (TextBox)sender;
+            string currentText = textBox.Text;
+
+
+            if (ch == '-')
+            {
+                e.Handled = currentText.Length > 0 && textBox.SelectionStart != 0;
+                return;
+            }
+
+            if (!char.IsDigit(ch) && ch != '.')
             {
                 e.Handled = true;
                 return;
             }
 
-          
-            if (ch == '.' && textBox1.Text.Contains(".") && ch == '-' && textBox1.Text.Contains("-"))
+
+            if (ch == '.')
             {
-                e.Handled = true;
-                return;
+                // Verificar si ya hay un punto decimal en el texto actual
+                bool hasDecimal = currentText.Contains(".");
+
+                // Permitir el punto solo si ya hay al menos un dígito
+                e.Handled = hasDecimal || currentText.Length == 0;
             }
         }
+
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {

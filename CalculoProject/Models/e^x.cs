@@ -15,22 +15,16 @@ namespace CalculoProject.Models
 
         public override double calcularSucesion(double x, int Terminos)
         {
-            double[] Secuencia = new double[Terminos];
-            double Factorial = 1.0;
-            double Potencia = 1.0;
-            double Sum = 0.0;
-            for(int i = 0; i < Terminos; i++)
+            double sum = 0.0;
+            double term = 1.0;
+
+            for (int n = 0; n <= Terminos; n++)
             {
-                if (i > 0)
-                {
-                    Factorial *= i; 
-                    Potencia *= x; 
-                }
-               
-                Secuencia[i] = Potencia / Factorial;
-                Sum += Secuencia[i];
+                sum += term;
+                term *= x / (n + 1); 
             }
-            return Sum;
+
+            return sum;
         }
     }
 }
