@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CalculoProject.Models
 {
@@ -12,25 +8,39 @@ namespace CalculoProject.Models
         {
         }
 
-        public override double calcularSucesion(double x, int Terminos)
+        private double Potencia(double baseNum, int exponente)
         {
-            double[] Secuencia = new double[Terminos];
-            double Divisor = 1.0;
-            double Potencia = 1.0;
-            double Sum = 0.0;
-            for (int i = 0; i < Terminos; i++)
+            double resultado = 1.0;
+            for (int i = 0; i < exponente; i++)
             {
-                Divisor = 2 * i + 1;
-                if (i > 0)
-                {
+                resultado *= baseNum;
+            }
+            return resultado;
+        }
 
-                    Potencia *= x * x;
-                }
-                Secuencia[i] = 1 / (Potencia * Divisor);
-                Sum += Secuencia[i];
+        private double Division(double numerador, double denominador)
+        {
+            double resultado = numerador / denominador;
+            return resultado;
+        }
+
+        public override double calcularSucesion(double x, int terminos)
+        {
+            if (x <= 1 && x >= -1)
+            {
+                throw new ArgumentException("x debe ser mayor que 1 o menor que -1 para la función arccoth.");
             }
 
-            return Sum;
+            double secuencia = 0;
+            double inversoX = Division(1.0, x);
+
+            for (int i = 0; i < terminos; i++)
+            {
+                double termino = Division(1.0, (2 * i + 1)) * Potencia(inversoX, 2 * i + 1);
+                secuencia += termino;
+            }
+
+            return secuencia;
         }
     }
 }
