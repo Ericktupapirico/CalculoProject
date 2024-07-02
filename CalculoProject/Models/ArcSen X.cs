@@ -16,8 +16,10 @@ namespace CalculoProject.Models
         public override double calcularSucesion(double x, int Terminos)
         {
             double contadorImpar = 1;
-            double multiplicador = 1;
-            double factorial = 1.0;
+            double contadorPar = 0;
+            double multiplicadorNumerador = 1;
+            double multiplicadorDenominador = 1.0;
+            double denominador = 1.0;
             double potencia = x;
             double sum = 0.0;
             
@@ -25,16 +27,19 @@ namespace CalculoProject.Models
             {
                 if (n > 0)
                 {
-                    factorial *= (2 * n) * (2 * n + 1); 
+                    contadorPar += 2;
+                    multiplicadorDenominador *= contadorPar; 
+                    denominador = multiplicadorDenominador * (contadorPar+1);
                     potencia *= x * x; 
                 }
+                Console.WriteLine(potencia);
+                Console.WriteLine(multiplicadorNumerador);
 
-                
-                sum += (potencia*multiplicador)/factorial;
+                sum += (potencia*multiplicadorNumerador)/denominador;
 
                 if (n > 0){
                     contadorImpar += 2;
-                    multiplicador *= contadorImpar;
+                    multiplicadorNumerador *= contadorImpar;
                 }
             }
 
