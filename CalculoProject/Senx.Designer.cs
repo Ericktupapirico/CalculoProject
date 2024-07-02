@@ -43,8 +43,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(125, 27);
             textBox1.TabIndex = 18;
-            textBox1.TextChanged += textBox1_TextChanged_1;
-            textBox1.KeyPress += textBox1_Keypress;
+            textBox1.KeyPress += textBox1_KeyPress;
             // 
             // button1
             // 
@@ -87,11 +86,11 @@
             label1.AutoSize = true;
             label1.Location = new Point(390, 87);
             label1.Name = "label1";
-            label1.Size = new Size(175, 20);
+            label1.Size = new Size(185, 20);
             label1.TabIndex = 13;
-            label1.Text = "Calcular Serie para:  Senx";
+            label1.Text = "Calcular Serie para:  SenX";
             // 
-            // Senx
+            // SenX
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -102,8 +101,8 @@
             Controls.Add(numericUpDown1);
             Controls.Add(label2);
             Controls.Add(label1);
-            Name = "Senx";
-            Text = "Senx";
+            Name = "SenX";
+            Text = "SenX";
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
             PerformLayout();

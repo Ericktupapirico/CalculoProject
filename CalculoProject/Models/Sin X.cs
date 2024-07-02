@@ -16,17 +16,34 @@ namespace CalculoProject.Models
         {
             double[] Secuencia = new double[Terminos];
             double Factorial = 1.0;
-            double Potencia = 1.0;
+            double Potencia  = x;
             double Sum = 0.0;
             for (int i = 0; i < Terminos; i++)
             {
-                if (i > 0)
-                {
-                    Factorial *= i;
-                    Potencia *= x;
-                }
 
+                for (int j = 1; j < (2*i)+1; j++)
+                {
+                    // Console.WriteLine("2n+1: " + ((2*i)+1));
+                    Factorial *= j+1;
+                    Potencia *= x;
+                    // Console.WriteLine("Factorial " + i + " : " + Factorial);
+                    // Console.WriteLine("Potencia " + i + " : " + Potencia);
+                }
+                
+
+                if(i % 2 == 0)
+                {
+                    Secuencia[i] = Potencia / Factorial;
+                }
+                else
+                {
+                    Secuencia[i] = -Potencia / Factorial;
+                }
+                // Console.WriteLine("Secuencia " + i + " : " + Secuencia[i]);
                 Sum += Secuencia[i];
+
+                Factorial = 1.0;
+                Potencia = x;
             }
 
             return Sum;
