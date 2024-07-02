@@ -22,7 +22,7 @@ namespace CalculoProject
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            AbrirForm( form: new ArcCosx());
         }
 
         private void button2_Click(object sender, EventArgs e)

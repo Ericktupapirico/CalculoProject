@@ -28,12 +28,9 @@ namespace CalculoProject.Models
                     factorial *= (2 * n) * (2 * n + 1); 
                     potencia *= x * x; 
                 }
-                Console.WriteLine("Factorial " + n + " : " + factorial);
-                Console.WriteLine("potencia " + n + " : " + potencia);
-                Console.WriteLine("Multiplicador " + n + " : " + multiplicador);
 
+                
                 sum += (potencia*multiplicador)/factorial;
-                Console.WriteLine("Iteracion " + n + " : " + (potencia*contadorImpar)/factorial);
 
                 if (n > 0){
                     contadorImpar += 2;
