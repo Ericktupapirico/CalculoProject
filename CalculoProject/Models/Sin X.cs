@@ -14,39 +14,32 @@ namespace CalculoProject.Models
 
         public override double calcularSucesion(double x, int Terminos)
         {
-            double[] Secuencia = new double[Terminos];
-            double Factorial = 1.0;
-            double Potencia  = x;
-            double Sum = 0.0;
-            for (int i = 0; i < Terminos; i++)
+            double sum = 0.0;
+            double potencia = x; 
+            double factorial = 1.0;
+            double term = 0;
+
+            for (int n = 0; n <= Terminos; n++)
             {
-
-                for (int j = 1; j < (2*i)+1; j++)
+                if (n > 0)
                 {
-                    // Console.WriteLine("2n+1: " + ((2*i)+1));
-                    Factorial *= j+1;
-                    Potencia *= x;
-                    // Console.WriteLine("Factorial " + i + " : " + Factorial);
-                    // Console.WriteLine("Potencia " + i + " : " + Potencia);
+                    factorial *= (2 * n) * (2 * n + 1); 
+                    potencia *= x * x; 
                 }
-                
 
-                if(i % 2 == 0)
+                if (n % 2 == 0)
                 {
-                    Secuencia[i] = Potencia / Factorial;
+                    term = potencia / factorial;
                 }
                 else
                 {
-                    Secuencia[i] = -Potencia / Factorial;
+                    term = -potencia / factorial;
                 }
-                // Console.WriteLine("Secuencia " + i + " : " + Secuencia[i]);
-                Sum += Secuencia[i];
 
-                Factorial = 1.0;
-                Potencia = x;
+                sum += term;
             }
 
-            return Sum;
+            return sum;
         }
     }
 }

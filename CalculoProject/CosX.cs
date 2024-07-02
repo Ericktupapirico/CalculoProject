@@ -1,4 +1,4 @@
-﻿using CalculoProject.Models;
+using CalculoProject.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace CalculoProject
 {
-    public partial class Senx : Form
+    public partial class Cosx : Form
     {
-        public Senx()
+        public Cosx()
         {
             InitializeComponent();
         }
@@ -70,7 +70,7 @@ namespace CalculoProject
             terminos = (int)numericUpDown1.Value;
 
 
-            Sinx sin = new Sinx(valor, terminos);
+            CosX sin = new CosX(valor, terminos);
 
             MessageBox.Show("La respuesta es: " + sin.calcularSucesion(valor, terminos), "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

@@ -1,6 +1,6 @@
-﻿namespace CalculoProject
+namespace CalculoProject
 {
-    partial class Senx
+    partial class Ln
     {
         /// <summary>
         /// Required designer variable.
@@ -89,9 +89,9 @@ private void InitializeComponent()
             label1.Name = "label1";
             label1.Size = new Size(185, 20);
             label1.TabIndex = 13;
-            label1.Text = "Calcular Serie para:  SenX";
+            label1.Text = "Calcular Serie para:  Ln(1+x)";
             // 
-            // SenX
+            // LN
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -103,8 +103,8 @@ private void InitializeComponent()
             Controls.Add(numericUpDown1);
             Controls.Add(label2);
             Controls.Add(label1);
-            Name = "SenX";
-            Text = "SenX";
+            Name = "Ln(1+x)";
+            Text = "Ln(1+x)";
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
             PerformLayout();

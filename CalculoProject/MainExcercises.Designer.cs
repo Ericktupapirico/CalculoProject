@@ -222,7 +222,7 @@
             button5.TabIndex = 17;
             button5.Text = ":::";
             button5.UseVisualStyleBackColor = true;
-       
+            button5.Click += button5_Click;
             // 
             // button6
             // 
@@ -232,6 +232,7 @@
             button6.TabIndex = 18;
             button6.Text = ":::";
             button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
             // button7
             // 
@@ -281,6 +282,7 @@
             button11.TabIndex = 23;
             button11.Text = ":::";
             button11.UseVisualStyleBackColor = true;
+            button11.Click += button11_Click;
             // 
             // button12
             // 
@@ -300,6 +302,7 @@
             button13.TabIndex = 25;
             button13.Text = ":::";
             button13.UseVisualStyleBackColor = true;
+            button13.Click += button13_Click;
             // 
             // panel1
             // 
