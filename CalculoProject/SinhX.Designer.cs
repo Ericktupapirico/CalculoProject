@@ -43,7 +43,8 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(125, 27);
             textBox1.TabIndex = 18;
-            textBox1.KeyPress += textBox1_KeyPress;
+            textBox1.TextChanged += textBox1_TextChanged;
+            textBox1.KeyPress += textButton1_KeyPress;
             // 
             // button1
             // 
@@ -67,7 +68,7 @@
             // numericUpDown1
             // 
             numericUpDown1.Location = new Point(100, 258);
-            numericUpDown1.Maximum = new decimal(new int[] { 16, 0, 0, 0 });
+            numericUpDown1.Maximum = new decimal(new int[] { 17, 0, 0, 0 });
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new Size(150, 27);
             numericUpDown1.TabIndex = 15;
@@ -94,6 +95,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(659, 422);
             Controls.Add(textBox1);
             Controls.Add(button1);

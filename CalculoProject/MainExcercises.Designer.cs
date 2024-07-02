@@ -222,7 +222,7 @@
             button5.TabIndex = 17;
             button5.Text = ":::";
             button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click;
+       
             // 
             // button6
             // 
@@ -303,9 +303,11 @@
             // 
             // panel1
             // 
+            panel1.BackColor = SystemColors.ActiveCaption;
+            panel1.BackgroundImageLayout = ImageLayout.None;
             panel1.Location = new Point(192, 71);
             panel1.Name = "panel1";
-            panel1.Size = new Size(677, 469);
+            panel1.Size = new Size(681, 520);
             panel1.TabIndex = 26;
             // 
             // MainExcercises
