@@ -22,7 +22,7 @@ namespace CalculoProject
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -66,5 +66,27 @@ namespace CalculoProject
         {
             AbrirForm(form: new SinhX());
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            AbrirForm(form: new Senx());
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            AbrirForm(form: new Cosx());
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            AbrirForm(form: new Ln());
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            AbrirForm(form: new ArcTanx());
+        }
+
+
     }
 }
