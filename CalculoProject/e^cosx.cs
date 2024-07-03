@@ -31,10 +31,9 @@ namespace CalculoProject
             TextBox textBox = (TextBox)sender;
             string currentText = textBox.Text;
 
-
             if (ch == '-')
             {
-                e.Handled = currentText.Length > 0 && textBox.SelectionStart != 0;
+                e.Handled = currentText.Length > 0 || textBox.SelectionStart != 0;
                 return;
             }
 
@@ -44,17 +43,28 @@ namespace CalculoProject
                 return;
             }
 
-
             if (ch == '.')
             {
-                // Verificar si ya hay un punto decimal en el texto actual
+
                 bool hasDecimal = currentText.Contains(".");
 
-                // Permitir el punto solo si ya hay al menos un dígito
                 e.Handled = hasDecimal || currentText.Length == 0;
+
+                if (currentText.StartsWith("-") && !hasDecimal && currentText.Length == 1)
+                {
+
+                    textBox.Text = "0.";
+                    textBox.SelectionStart = textBox.Text.Length;
+                    e.Handled = true;
+                }
+                else if (!hasDecimal && currentText.Length == 0)
+                {
+
+                    textBox.Text = "0" + textBox.Text;
+                    textBox.SelectionStart = 2;
+                }
             }
         }
-
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {

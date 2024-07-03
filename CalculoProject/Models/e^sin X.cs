@@ -1,5 +1,4 @@
-﻿using CalculoProject.Models;
-using System;
+﻿using System;
 
 namespace CalculoProject.Models
 {
@@ -11,50 +10,52 @@ namespace CalculoProject.Models
 
         public override double calcularSucesion(double x, int terms)
         {
+            double sinX = CalculateSine(x, terms);
+            double eSinX = CalculateESinX(sinX, terms);
+            return eSinX;
+        }
+
+        static double CalculateSine(double x, int terms)
+        {
             double sum = 0.0;
-            double sinX = Sin(x, terms);
+            double potencia = x;
+            double factorial = 1.0;
+            double term = 0;
 
             for (int n = 0; n <= terms; n++)
             {
-                double term = Elevar(sinX, n) / Factorial(n);
+                if (n > 0)
+                {
+                    factorial *= (2 * n) * (2 * n + 1); 
+                    potencia *= x * x; 
+                }
+
+                if (n % 2 == 0)
+                {
+                    term = potencia / factorial;
+                }
+                else
+                {
+                    term = -potencia / factorial;
+                }
+
                 sum += term;
             }
 
             return sum;
         }
 
-        static double Sin(double x, int terms)
+        static double CalculateESinX(double sinX, int n)
         {
-            double sum = 0.0;
+            double result = 0.0;
+            double term = 1.0;
 
-            for (int n = 0; n < terms; n++)
+            for (int i = 0; i < n; i++)
             {
-                double term = Elevar(-1, n) * Elevar(x, 2 * n + 1) / Factorial(2 * n + 1);
-                sum += term;
+                result += term;
+                term *= (sinX / (i + 1));
             }
 
-            return sum;
-        }
-
-        static double Elevar(double baseNum, int exp)
-        {
-            if (exp == 0) return 1.0;
-            double result = 1.0;
-            for (int i = 0; i < exp; i++)
-            {
-                result *= baseNum;
-            }
-            return result;
-        }
-
-        static double Factorial(int n)
-        {
-            if (n == 0) return 1.0;
-            double result = 1.0;
-            for (int i = 1; i <= n; i++)
-            {
-                result *= i;
-            }
             return result;
         }
     }

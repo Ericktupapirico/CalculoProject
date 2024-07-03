@@ -8,63 +8,53 @@ namespace CalculoProject.Models
         {
         }
 
-        public override double calcularSucesion(double x, int terminos)
+        public override double calcularSucesion(double x, int terms)
         {
-            double cosX = CalcularCoseno(x);
-            double eCosX = 0;
-
-            for (int n = 0; n < terminos; n++)
-            {
-               
-                double termino = CalcularPotencia(cosX, n) / CalcularFactorial(n);
-
-                
-                eCosX += termino;
-            }
-
+            double cosx = CalculateCose(x, terms);
+            double eCosX = CalculateECosx(cosx, terms);
             return eCosX;
         }
 
-        static double CalcularCoseno(double x)
-        {  
-            double cosX = 1;
-          
-            double termino = 1;
+        // Método de instancia para calcular la serie de coseno
+        private double CalculateCose(double x, int terms)
+        {
+            double seriesSum = 0;
+            double currentPower = 1;
+            long factorial = 1;
 
-            for (int n = 1; n <= 10; n++)
+            for (int i = 0; i <= terms; i++)
             {
-                termino *= -CalcularPotencia(x, 2) / ((2 * n - 1) * (2 * n));
-                cosX += termino;
-            }
+                double term = currentPower / factorial;
 
-            return cosX;
+                if (i % 2 == 0)
+                {
+                    seriesSum += term;
+                }
+                else
+                {
+                    seriesSum -= term;
+                }
+
+                currentPower *= x * x;
+
+                factorial *= (2 * i + 1) * (2 * i + 2);
+            }
+            return seriesSum;
         }
 
-        static double CalcularPotencia(double baseNum, int exponente)
+        // Método de instancia para calcular la serie de e^cos(x)
+        private double CalculateECosx(double cosx, int n)
         {
-            double resultado = 1.0;
+            double result = 0.0;
+            double term = 1.0;
 
-            for (int i = 0; i < exponente; i++)
+            for (int i = 0; i < n; i++)
             {
-                resultado *= baseNum;
+                result += term;
+                term *= cosx / (i + 1);
             }
 
-            return resultado;
-        } 
-
-    static double CalcularFactorial(int n)
-    {
-        if (n == 0)
-            return 1;
-
-        double factorial = 1.0;
-
-        for (int i = 1; i <= n; i++)
-        {
-            factorial *= i;
+            return result;
         }
-
-        return factorial;
     }
 }
-    }
