@@ -73,6 +73,7 @@
             numericUpDown1.Size = new Size(150, 27);
             numericUpDown1.TabIndex = 21;
             numericUpDown1.Value = new decimal(new int[] { 16, 0, 0, 0 });
+            numericUpDown1.KeyPress += numericUpDown1_KeyPress;
             // 
             // label2
             // 
