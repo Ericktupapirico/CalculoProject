@@ -44,7 +44,7 @@
             textBox1.Size = new Size(125, 27);
             textBox1.TabIndex = 24;
             textBox1.TextChanged += textBox1_TextChanged;
-            textBox1.KeyPress += textButton1_KeyPress;
+            textBox1.KeyPress += textBox1_KeyPress;
             // 
             // button1
             // 
@@ -64,6 +64,7 @@
             label3.Size = new Size(69, 20);
             label3.TabIndex = 22;
             label3.Text = "Terminos";
+         
             // 
             // numericUpDown1
             // 
@@ -72,6 +73,7 @@
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new Size(150, 27);
             numericUpDown1.TabIndex = 21;
+        
             numericUpDown1.KeyPress += numericUpDown1_KeyPress;
             // 
             // label2
@@ -82,6 +84,7 @@
             label2.Size = new Size(77, 20);
             label2.TabIndex = 20;
             label2.Text = "Valor de X";
+       
             // 
             // label1
             // 
@@ -91,6 +94,7 @@
             label1.Size = new Size(187, 20);
             label1.TabIndex = 19;
             label1.Text = "Calcular Serie para:  e^sinx";
+            label1.Click += label1_Click;
             // 
             // e_sinx
             // 

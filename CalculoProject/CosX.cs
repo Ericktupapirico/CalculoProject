@@ -18,11 +18,11 @@ namespace CalculoProject
             InitializeComponent();
         }
 
-        private void textButton1_KeyPress(object sender, KeyPressEventArgs e)
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             char ch = e.KeyChar;
 
-            if (ch == 8)
+            if (ch == 8) // Backspace
             {
                 e.Handled = false;
                 return;
@@ -31,9 +31,10 @@ namespace CalculoProject
             TextBox textBox = (TextBox)sender;
             string currentText = textBox.Text;
 
-            if (ch == '-')
+            // Permitir '-' solo si es el primer carácter y no hay otro '-' presente
+            if (ch == '-' && textBox.SelectionStart == 0 && !currentText.Contains("-"))
             {
-                e.Handled = currentText.Length > 0 || textBox.SelectionStart != 0;
+                e.Handled = false;
                 return;
             }
 
@@ -43,6 +44,26 @@ namespace CalculoProject
                 return;
             }
 
+            if (ch == '.')
+            {
+                bool hasDecimal = currentText.Contains(".");
+
+                // Permitir '.' solo si no hay otro decimal presente
+                e.Handled = hasDecimal;
+
+                if (!hasDecimal && currentText.Length == 0)
+                {
+                    // Si el texto actual está vacío, añadir "0."
+                    textBox.Text = "0" + textBox.Text;
+                    textBox.SelectionStart = textBox.Text.Length;
+                }
+                else if (currentText.EndsWith("."))
+                {
+                    // Si el texto termina con ".", añadir "0"
+                    textBox.Text += "0";
+                    textBox.SelectionStart = textBox.Text.Length;
+                }
+            }
             if (ch == '.')
             {
 
@@ -57,19 +78,22 @@ namespace CalculoProject
                     textBox.SelectionStart = textBox.Text.Length;
                     e.Handled = true;
                 }
-                else if (!hasDecimal && currentText.Length == 0)
-                {
 
-                    textBox.Text = "0" + textBox.Text;
-                    textBox.SelectionStart = 2;
-                }
             }
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
             double valor;
             int terminos;
+            string text = textBox1.Text.Trim();
+            if (text.EndsWith("."))
+            {
+                textBox1.Text += "0";
+
+            }
+
 
             if (!double.TryParse(textBox1.Text, out valor))
             {
