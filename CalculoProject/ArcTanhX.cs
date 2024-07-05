@@ -96,5 +96,53 @@ namespace CalculoProject
 
             MessageBox.Show("La respuesta es: " + arctanh.calcularSucesion(valor, terminos), "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+        private void numericUpDown1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char ch = e.KeyChar;
+
+            if (ch == 8) // Backspace
+            {
+                e.Handled = false;
+                return;
+            }
+
+            NumericUpDown numericUpDown = (NumericUpDown)sender;
+            string currentText = numericUpDown.Text;
+
+            if (ch == '-')
+            {
+                // Allow '-' only if it is the first character and no other '-' is present
+                e.Handled = currentText.Length > 0 || numericUpDown.Text.Length != 0;
+                return;
+            }
+
+            if (!char.IsDigit(ch) && ch != '.')
+            {
+                e.Handled = true;
+                return;
+            }
+
+            if (ch == '.')
+            {
+                bool hasDecimal = currentText.Contains(".");
+                
+                // Allow '.' only if it is the first character or if there is no existing decimal
+                e.Handled = hasDecimal || currentText.Length == 0;
+
+                if (currentText.StartsWith("-") && !hasDecimal && currentText.Length == 1)
+                {
+                    // If the current text is "-", prepend "0."
+                    numericUpDown.Text = "0.";
+                    numericUpDown.Select(0, numericUpDown.Text.Length);
+                    e.Handled = true;
+                }
+                else if (!hasDecimal && currentText.Length == 0)
+                {
+                    // If the current text is empty, prepend "0"
+                    numericUpDown.Text = "0" + numericUpDown.Text;
+                    numericUpDown.Select(2, 0);
+                }
+            }
+        }
     }
 }

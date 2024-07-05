@@ -10,21 +10,28 @@ namespace CalculoProject.Models
 
         public override double calcularSucesion(double x, int terms)
         {
-            double seriesSum = 0;
-            double currentPower = 1; 
-            long factorial = 1; 
+            double sum = 0.0;
+            double potencia = 1; 
+            double factorial = 1.0;
+            double term = 0;
 
-            for (int i = 0; i <= terms; i++)
+            for (int n = 0; n <= Terminos; n++)
             {
-                double term = currentPower / factorial;
-                seriesSum += term;
+                if (n > 0)
+                {
+                    for (int i = 1; i <= 2 * n; i++){
+                        factorial *= i;
+                    } 
+                    potencia *= x * x; 
+                }
 
-               
-                currentPower *= x * x;
+                term = potencia / factorial;
 
-                factorial *= (2 * i + 1) * (2 * i + 2);
+                sum += term;
+                factorial = 1.0;
             }
-            return seriesSum;
+
+            return sum;
         }
     }
     }

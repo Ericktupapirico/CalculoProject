@@ -72,6 +72,7 @@
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new Size(150, 27);
             numericUpDown1.TabIndex = 15;
+            numericUpDown1.KeyPress += numericUpDown1_KeyPress;
             // 
             // label2
             // 
