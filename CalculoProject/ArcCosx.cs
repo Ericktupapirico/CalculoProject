@@ -103,6 +103,12 @@ namespace CalculoProject
 
             terminos = (int)numericUpDown1.Value;
 
+            if (valor <= -1 || valor >= 1)
+            {
+                MessageBox.Show("x debe estar en el intervalo -1 < x < 1 para la función arccos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
 
             ArcCos sin = new ArcCos(valor, terminos);
 

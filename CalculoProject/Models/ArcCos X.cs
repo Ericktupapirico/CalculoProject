@@ -14,6 +14,11 @@ namespace CalculoProject.Models
 
         public override double calcularSucesion(double x, int Terminos)
         {
+            if (x <= -1 || x >= 1)
+            {
+                throw new ArgumentException("x debe estar en el intervalo -1 < x < 1 para la función arccos.");
+            }
+
             double contadorImpar = 1;
             double contadorPar = 0;
             double multiplicadorNumerador = 1;
