@@ -92,5 +92,10 @@ namespace CalculoProject
         {
 
         }
+
+        private void Senx_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
