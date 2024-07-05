@@ -53,7 +53,7 @@ namespace CalculoProject
                 if (currentText.StartsWith("-") && !hasDecimal && currentText.Length == 1)
                 {
 
-                    textBox.Text = "0.";
+                    textBox.Text = "-0.";
                     textBox.SelectionStart = textBox.Text.Length;
                     e.Handled = true;
                 }
@@ -84,14 +84,17 @@ namespace CalculoProject
                 return;
             }
 
-
             terminos = (int)numericUpDown1.Value;
 
+            if (valor <= -1 || valor >= 1)
+            {
+                MessageBox.Show("x debe estar en el intervalo -1 < x < 1 para la función arctanh.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-            ArcTanh Tanh = new ArcTanh(valor, terminos);
+            ArcTanh arctanh = new ArcTanh(valor, terminos);
 
-            MessageBox.Show("La respuesta es: " + Tanh.calcularSucesion(valor, terminos), "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+            MessageBox.Show("La respuesta es: " + arctanh.calcularSucesion(valor, terminos), "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

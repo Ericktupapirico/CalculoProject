@@ -53,7 +53,7 @@ namespace CalculoProject
                 if (currentText.StartsWith("-") && !hasDecimal && currentText.Length == 1)
                 {
 
-                    textBox.Text = "0.";
+                    textBox.Text = "-0.";
                     textBox.SelectionStart = textBox.Text.Length;
                     e.Handled = true;
                 }
@@ -90,6 +90,11 @@ namespace CalculoProject
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SinhX_Load(object sender, EventArgs e)
         {
 
         }
