@@ -96,7 +96,6 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
-            BackgroundImage = Properties.Resources.fondomarhform;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(659, 422);
             Controls.Add(textBox1);

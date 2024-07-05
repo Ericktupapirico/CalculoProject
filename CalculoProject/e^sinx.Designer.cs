@@ -39,7 +39,7 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(89, 182);
+            textBox1.Location = new Point(101, 181);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(125, 27);
             textBox1.TabIndex = 24;
@@ -48,7 +48,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(89, 307);
+            button1.Location = new Point(101, 306);
             button1.Name = "button1";
             button1.Size = new Size(94, 29);
             button1.TabIndex = 23;
@@ -59,7 +59,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(89, 235);
+            label3.Location = new Point(101, 234);
             label3.Name = "label3";
             label3.Size = new Size(69, 20);
             label3.TabIndex = 22;
@@ -67,7 +67,7 @@
             // 
             // numericUpDown1
             // 
-            numericUpDown1.Location = new Point(89, 258);
+            numericUpDown1.Location = new Point(101, 257);
             numericUpDown1.Maximum = new decimal(new int[] { 17, 0, 0, 0 });
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new Size(150, 27);
@@ -76,7 +76,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(89, 159);
+            label2.Location = new Point(101, 158);
             label2.Name = "label2";
             label2.Size = new Size(77, 20);
             label2.TabIndex = 20;
@@ -85,7 +85,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(379, 87);
+            label1.Location = new Point(391, 86);
             label1.Name = "label1";
             label1.Size = new Size(187, 20);
             label1.TabIndex = 19;
@@ -96,7 +96,6 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
-            BackgroundImage = Properties.Resources.fondomarhform;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(659, 422);
             Controls.Add(textBox1);
