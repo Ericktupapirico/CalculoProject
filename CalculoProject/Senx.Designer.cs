@@ -107,6 +107,7 @@
             Controls.Add(label1);
             Name = "Senx";
             Text = "SenX";
+            Load += Senx_Load;
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
             PerformLayout();
