@@ -53,7 +53,7 @@ namespace CalculoProject
                 if (currentText.StartsWith("-") && !hasDecimal && currentText.Length == 1)
                 {
 
-                    textBox.Text = "0.";
+                    textBox.Text = "-0.";
                     textBox.SelectionStart = textBox.Text.Length;
                     e.Handled = true;
                 }

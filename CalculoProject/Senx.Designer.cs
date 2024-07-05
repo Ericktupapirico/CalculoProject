@@ -26,7 +26,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-private void InitializeComponent()
+        private void InitializeComponent()
         {
             textBox1 = new TextBox();
             button1 = new Button();
@@ -88,15 +88,17 @@ private void InitializeComponent()
             label1.AutoSize = true;
             label1.Location = new Point(390, 87);
             label1.Name = "label1";
-            label1.Size = new Size(185, 20);
+            label1.Size = new Size(177, 20);
             label1.TabIndex = 13;
             label1.Text = "Calcular Serie para:  SenX";
             // 
-            // SenX
+            // Senx
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveCaption;
+            BackColor = SystemColors.ControlLightLight;
+            BackgroundImage = Properties.Resources.fondomarhform;
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(659, 422);
             Controls.Add(textBox1);
             Controls.Add(button1);
@@ -104,7 +106,7 @@ private void InitializeComponent()
             Controls.Add(numericUpDown1);
             Controls.Add(label2);
             Controls.Add(label1);
-            Name = "SenX";
+            Name = "Senx";
             Text = "SenX";
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);

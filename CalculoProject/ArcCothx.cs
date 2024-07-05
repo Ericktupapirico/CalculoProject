@@ -53,7 +53,7 @@ namespace CalculoProject
                 if (currentText.StartsWith("-") && !hasDecimal && currentText.Length == 1)
                 {
 
-                    textBox.Text = "0.";
+                    textBox.Text = "-0.";
                     textBox.SelectionStart = textBox.Text.Length;
                     e.Handled = true;
                 }
@@ -69,27 +69,40 @@ namespace CalculoProject
 
         private void button1_Click(object sender, EventArgs e)
         {
-
             double valor;
             int terminos;
 
+            // Intentar analizar el valor como un número doble (decimal)
             if (!double.TryParse(textBox1.Text, out valor))
             {
                 MessageBox.Show("Por favor ingrese un número válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-
+            // Obtener el número de términos
             terminos = (int)numericUpDown1.Value;
 
+            // Validar que el valor sea adecuado para arccoth
+            if (valor <= 1 && valor >= -1)
+            {
+                MessageBox.Show("x debe ser mayor que 1 o menor que -1 para la función arccoth.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
+            // Crear la instancia de ArcCoth y calcular la sucesión
             ArcCoth cot = new ArcCoth(valor, terminos);
 
+            // Mostrar el resultado
             MessageBox.Show("La respuesta es: " + cot.calcularSucesion(valor, terminos), "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void ArcCothx_Load(object sender, EventArgs e)
         {
 
         }

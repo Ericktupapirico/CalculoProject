@@ -95,7 +95,9 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveCaption;
+            BackColor = SystemColors.ControlLightLight;
+            BackgroundImage = Properties.Resources.fondomarhform;
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(659, 422);
             Controls.Add(textBox1);
             Controls.Add(button1);
@@ -105,6 +107,7 @@
             Controls.Add(label1);
             Name = "ArcCothx";
             Text = "ArcCothx";
+            Load += ArcCothx_Load;
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
             PerformLayout();

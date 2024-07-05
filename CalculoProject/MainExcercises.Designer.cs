@@ -306,7 +306,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = SystemColors.ActiveCaption;
+            panel1.BackColor = SystemColors.ControlLightLight;
             panel1.BackgroundImageLayout = ImageLayout.None;
             panel1.Location = new Point(192, 71);
             panel1.Name = "panel1";
@@ -317,6 +317,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.mathfondo;
             ClientSize = new Size(936, 649);
             Controls.Add(panel1);
             Controls.Add(button13);
@@ -345,6 +346,7 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            ForeColor = SystemColors.ActiveCaptionText;
             Name = "MainExcercises";
             Text = "Funciones";
             ResumeLayout(false);
